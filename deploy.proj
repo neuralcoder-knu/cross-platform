@@ -2,6 +2,7 @@
 
   <Target Name="BuilldAndRun" DependsOnTargets="LoadSolution">
    <Exec Command="dotnet run --project Lab01/Lab01.csproj" />
+   <Exec Command="dotnet run --project Lab02/Lab02.csproj" />
   </Target>
 
   <Target Name="Test" DependsOnTargets="LoadSolution">
