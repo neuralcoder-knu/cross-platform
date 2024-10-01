@@ -1,0 +1,17 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Target Name="BuilldAndRun" DependsOnTargets="LoadSolution">
+   <Exec Command="dotnet run --project Lab01/Lab01.csproj" />
+  </Target>
+
+  <Target Name="Test" DependsOnTargets="LoadSolution">
+	  <Exec Command="dotnet test CrossTests/CrossTests.csproj" />
+  </Target>
+
+  <Target Name="LoadSolution">
+    <MSBuild Projects="CrossPlatform-A.sln" Targets="Build" />
+  </Target>
+
+  <Target Name="Build" DependsOnTargets="Test;BuilldAndRun" />
+  
+</Project>
