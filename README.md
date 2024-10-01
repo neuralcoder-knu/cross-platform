@@ -1,0 +1,3 @@
+```bash
+msbuild deploy.proj
+```
