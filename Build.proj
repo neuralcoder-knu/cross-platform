@@ -1,0 +1,26 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Solution Condition="'$(Solution)' == ''"></Solution>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(Solution)' != ''">
+    <API Include="API\API.csproj" />
+    <Test Include="CrossTests\CrossTests.csproj" />
+    <Lab Include="$(Solution)\$(Solution).csproj" />
+  </ItemGroup>
+
+  <Target Name="Test" DependsOnTargets="Build">
+    <Exec Command="dotnet test @(Test) --logger &quot;console;verbosity=detailed&quot;" />
+  </Target>
+
+  <Target Name="Build">
+    <MSBuild Projects="@(API);@(Test);@(Lab)" Targets="Restore;Build" />
+  </Target>
+
+  <Target Name="Run" DependsOnTargets="Build">
+    <Exec Command="dotnet run --project &quot;@(Lab)&quot;" />
+  </Target>
+  
+</Project>
