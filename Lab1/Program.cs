@@ -8,7 +8,7 @@ var fileSaver = new FileSaver(Path.GetFullPath(Path.Combine(AppDomain.CurrentDom
 fileReader.CreateIfNotExists("56");
 
 var task = new LuckyNumbersTask(fileSaver)
-    .StatParams(new LuckyNumbersInput().Read(fileReader))
+    .Params(new LuckyNumbersInput().Read(fileReader))
     .Valid("N must be less than 1032", @params => @params.N is >= 0 and <= 1032);
 
 task.Handle().WriteResult();

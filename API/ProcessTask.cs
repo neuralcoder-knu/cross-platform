@@ -19,14 +19,14 @@ public abstract class ProcessTask<TTAskParams, TTaskResult>
     }
 
     //TODO: mb refactor, idk
-    protected static object[] ReturnResults(params object[] results)
+    public static object[] ReturnResults(params object[] results)
     {
         return results;
     }
     
     protected abstract object[] Handle0(TTAskParams abstractTaskParams);
 
-    public ProcessTask<TTAskParams, TTaskResult> StatParams(AbstractTaskParams paParams)
+    public ProcessTask<TTAskParams, TTaskResult> Params(AbstractTaskParams paParams)
     {
         var resParams = (TTAskParams)paParams;
         Validate(resParams);
