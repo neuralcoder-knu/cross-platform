@@ -9,4 +9,6 @@ dotnet --version
 dotnet nuget add source http://192.168.56.1:5555/v3/index.json -n Baget
 dotnet tool install --global MKoval --version 0.0.1
 
+cd C:\proj
+
 dotnet run --project Lab4 --help
