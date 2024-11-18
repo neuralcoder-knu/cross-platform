@@ -28,6 +28,7 @@ Vagrant.configure("2") do |config|
       vmware.ssh_info_public = true
       vmware.linked_clone = false
     end
+    windows.vm.synced_folder ".", "C:/proj"
     windows.vm.provision "shell", path: "windows-provision.sh"
   end
 end
