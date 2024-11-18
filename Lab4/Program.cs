@@ -83,8 +83,6 @@ class RunCommand
             }
         }
 
-        var projectRoot = Directory.GetCurrentDirectory();
-
         var homeFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), fileName);
 
         if (File.Exists(homeFolder))
@@ -93,12 +91,6 @@ class RunCommand
         }
         
         throw new IOException($"File not found {homeFolder}");
-    }
-    
-    //TODO: mb refactor, looks not fine, idk
-    private string CapitalizeFirstLetter(string input)
-    {
-        return char.ToUpper(input[0]) + input.Substring(1);
     }
 }
 
