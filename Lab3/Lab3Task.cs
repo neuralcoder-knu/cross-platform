@@ -5,6 +5,7 @@ namespace Lab03;
 
 public class Lab3Task(ISaver saver) : ProcessTask<Lab3Input, Lab3Result>(saver) 
 {
+    
     protected override object[] Handle0(Lab3Input abstractTaskParams)
     {
         var graph = new Graph(abstractTaskParams.N, abstractTaskParams.Grid,

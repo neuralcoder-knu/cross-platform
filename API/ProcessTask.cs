@@ -16,6 +16,12 @@ public abstract class ProcessTask<TTAskParams, TTaskResult>
     public ProcessTask(ISaver saver)
     {
         _saver = saver;
+        RegisterDefaultValidation();
+    }
+
+    protected void RegisterDefaultValidation()
+    {
+        
     }
 
     //TODO: mb refactor, idk

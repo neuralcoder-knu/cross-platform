@@ -3,7 +3,7 @@ namespace API.Util;
 public static class ReflectionUtil
 {
     
-    public static TResult CreateTaskResult<TResult>(object[] parameters) 
+    public static TResult CreateTaskResult<TResult>(params object[] parameters) 
     {
 
         var type = typeof(TResult);

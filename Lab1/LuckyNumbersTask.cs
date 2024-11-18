@@ -17,7 +17,12 @@ public class LuckyNumbersTask(ISaver saver) : ProcessTask<LuckyNumbersInput, Luc
 
         return ReturnResults(_numbers.Count);
     }
-    
+
+    protected new void RegisterDefaultValidation()
+    {
+        Valid("N must be less than 1032", @params => @params.N is >= 0 and <= 1032);
+    }
+
     private void GenerateLuckyNumbers(string current, int n)
     {
         if (current != "")

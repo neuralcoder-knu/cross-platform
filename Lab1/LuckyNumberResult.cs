@@ -8,6 +8,7 @@ public class LuckyNumberResult(int result) : AbstractTaskResult
 
     public override void WriteResult()
     {
+        Console.WriteLine(Result);
         Saver.Save(Result);
     }
 }
