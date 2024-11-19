@@ -1,0 +1,37 @@
+@model LabResultModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Лабораторна</h2>
+<form method="post" asp-action="Index" asp-controller="Lab">
+    @if (ViewBag.Message != null)
+    {
+        <h3 style="color: red">@ViewBag.Message</h3>
+    }
+    <div>
+        <input type="radio" id="Lab1" name="SelectedLab" value="Lab1" @(Model.SelectedLab == "Lab1" ? "checked" : "")/>
+        <label for="Lab1">Lab1</label>
+    </div>
+
+    <div>
+        <input type="radio" id="Lab2" name="SelectedLab" value="Lab2" @(Model.SelectedLab == "Lab2" ? "checked" : "")/>
+        <label for="Lab2">Lab2</label>
+    </div>
+
+    <div>
+        <input type="radio" id="Lab3" name="SelectedLab" value="Lab3" @(Model.SelectedLab == "Lab3" ? "checked" : "")/>
+        <label for="Lab3">Lab3</label>
+    </div>
+    <div class="form-group">
+        <label for="Input">Вхідні дані</label>
+        <textarea type="text" id="Input" name="Input" rows="10" class="form-control">@Model.Input</textarea>
+    </div>
+    <div class="form-group">
+        <label for="Output">Вихідні дані</label>
+        <textarea disabled="disabled" type="text" rows="10" id="Output" name="Output" class="form-control">@Model.Output</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Виконати</button>
+</form>

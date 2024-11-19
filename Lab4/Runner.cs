@@ -12,14 +12,21 @@ public class Runner
 {
     private readonly string? _lab;
 
-    private readonly FileReader _reader;
-    private readonly FileSaver _saver;
+    private readonly IReader _reader;
+    private readonly ISaver _saver;
     
     public Runner(string? lab, string inputPath, string outputPath)
     {
         _lab = lab;
         _reader = new FileReader(inputPath);
         _saver = new FileSaver(outputPath);
+    }
+    
+    public Runner(string? lab, IReader reader, ISaver saver)
+    {
+        _lab = lab;
+        _reader = reader;
+        _saver = saver;
     }
     
     
@@ -29,31 +36,31 @@ public class Runner
         {
             case "lab1":
             {
-                HandleTaskExecute<LuckyNumbersTask, LuckyNumbersInput, LuckyNumberResult>(_reader, _saver);        
+                HandleTaskExecute<LuckyNumbersTask, LuckyNumbersInput, LuckyNumberResult>();        
                 break;
             }
             
             case "lab2":
             {
-                HandleTaskExecute<TileTask, TileTaskInput, TileTaskResult>(_reader, _saver);        
+                HandleTaskExecute<TileTask, TileTaskInput, TileTaskResult>();        
                 break;
             }
             
             case "lab3":
             {
-                HandleTaskExecute<Lab3Task, Lab3Input, Lab3Result>(_reader, _saver);        
+                HandleTaskExecute<Lab3Task, Lab3Input, Lab3Result>();        
                 break;
             }
         }
     }
     
-    private void HandleTaskExecute<TTask, TTaskInput, TTaskResult>(FileReader reader, FileSaver saver) 
+    private void HandleTaskExecute<TTask, TTaskInput, TTaskResult>() 
         where TTaskResult : AbstractTaskResult
         where TTaskInput : AbstractTaskParams 
         where TTask : ProcessTask<TTaskInput, TTaskResult>
     {
-        var task = ReflectionUtil.CreateTaskResult<TTask>(saver)
-            .Params(ReflectionUtil.CreateTaskResult<TTaskInput>().Read(reader));
+        var task = ReflectionUtil.CreateTaskResult<TTask>(_saver)
+            .Params(ReflectionUtil.CreateTaskResult<TTaskInput>().Read(_reader));
         
         task.Handle().WriteResult();
     }

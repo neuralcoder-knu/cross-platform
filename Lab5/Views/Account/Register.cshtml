@@ -1,0 +1,54 @@
+@model Lab5.Models.RegisterModel
+
+<form method="post" asp-controller="Account" asp-action="Register" class="p-4 border rounded bg-light">
+    <h3 class="text-center mb-4">Реєстрація</h3>
+
+    <div class="form-group">
+        <label for="Username">Логін (до 50 символів)</label>
+        <input type="text" id="Username" name="Username" class="form-control" value="@Model.Username" placeholder="Введіть ваш логін" />
+        <span class="text-danger">@Html.ValidationMessageFor(m => m.Username)</span>
+    </div>
+
+    <div class="form-group">
+        <label for="FullName">Ваше повне ім’я</label>
+        <input type="text" id="FullName" name="FullName" class="form-control" value="@Model.FullName" placeholder="Введіть ваше повне ім’я" />
+        <span class="text-danger">@Html.ValidationMessageFor(m => m.FullName)</span>
+    </div>
+
+    <div class="form-group">
+        <label for="Password">Пароль</label>
+        <small class="form-text text-muted">
+            Повинен містити мінімум 8 символів, включаючи одну цифру, спеціальний знак і велику літеру.
+        </small>
+        <input type="password" id="Password" name="Password" class="form-control" value="@Model.Password" placeholder="Введіть пароль" />
+        <span class="text-danger">@Html.ValidationMessageFor(m => m.Password)</span>
+    </div>
+
+    <div class="form-group">
+        <label for="ConfirmPassword">Підтвердіть пароль</label>
+        <input type="password" id="ConfirmPassword" name="ConfirmPassword" class="form-control" value="@Model.ConfirmPassword" placeholder="Повторіть пароль" />
+        <span class="text-danger">@Html.ValidationMessageFor(m => m.ConfirmPassword)</span>
+    </div>
+
+    <div class="form-group">
+        <label for="Phone">Номер телефону</label>
+        <small class="form-text text-muted">Введіть номер телефону у форматі України.</small>
+        <input type="text" id="Phone" name="Phone" class="form-control" value="@Model.Phone" placeholder="+380XXXXXXXXX" />
+        <span class="text-danger">@Html.ValidationMessageFor(m => m.Phone)</span>
+    </div>
+
+    <div class="form-group">
+        <label for="Email">Електронна пошта</label>
+        <input type="email" id="Email" name="Email" class="form-control" value="@Model.Email" placeholder="example@domain.com" />
+        <span class="text-danger">@Html.ValidationMessageFor(m => m.Email)</span>
+    </div>
+
+    <div class="text-center mt-4">
+        <button type="submit" class="btn btn-success w-100">Створити акаунт</button>
+        <a href="/Account/Login" class="btn btn-link mt-2">Вже є акаунт? Увійти</a>
+    </div>
+</form>
+
+@section Scripts {
+@await Html.PartialAsync("_ValidationScriptsPartial")
+}
