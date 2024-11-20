@@ -6,10 +6,15 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>Lab03</RootNamespace>
+        <RestoreSources>$(RestoreSources);..\Lab3.Lib\nupkg;https://api.nuget.org/v3/index.json</RestoreSources>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\API\API.csproj" />
     </ItemGroup>
 
-</Project>
+    <ItemGroup>
+        <PackageReference Include="MKovalLab3" Version="1.0.0" />
+    </ItemGroup>
+    
+</Project>  

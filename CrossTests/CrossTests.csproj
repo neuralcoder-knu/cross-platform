@@ -25,7 +25,7 @@
       <ProjectReference Include="..\API\API.csproj" />
       <ProjectReference Include="..\Lab1\Lab1.csproj" />
       <ProjectReference Include="..\Lab2\Lab2.csproj" />
-      <ProjectReference Include="..\Lab3\Lab3.csproj" />
+      <ProjectReference Include="..\Lab3.Lib\Lab3.Lib.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,6 +1,5 @@
 using API;
 using API.Saver;
-using Lab02;
 using Lab03;
 
 namespace CrossTests;
