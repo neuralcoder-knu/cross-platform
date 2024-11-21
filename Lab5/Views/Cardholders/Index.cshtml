@@ -1,0 +1,22 @@
+<h2>Cardholders</h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Account</th>
+        <th>Country</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var cardholder in Model)
+    {
+        <tr>
+            <td>@cardholder.CardholderId</td>
+            <td>@cardholder.AccountNumber</td>
+            <td>@cardholder.CountryCode</td>
+            <td><a href="@Url.Action("Details", new { id = cardholder.CardholderId })">Details</a></td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -1,0 +1,16 @@
+@model RefCardType
+
+@{
+    ViewData["Title"] = "Card Type Details";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <strong>Name:</strong> @Model.TypeName
+</div>
+<div>
+    <strong>Code:</strong> @Model.CardTypeCode
+</div>
+
+<a href="@Url.Action("CardTypes")">Back to List</a>

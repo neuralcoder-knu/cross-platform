@@ -1,0 +1,29 @@
+@model IEnumerable<RefCardType>
+
+@{
+    ViewData["Title"] = "Card Types List";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Card Type Name</th>
+        <th>Card Type Code</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var cardType in Model)
+    {
+        <tr>
+            <td>@cardType.TypeName</td>
+            <td>@cardType.CardTypeCode</td>
+            <td>
+                <a href="@Url.Action("CardTypeDetails", new { id = cardType.CardTypeCode })">Details</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

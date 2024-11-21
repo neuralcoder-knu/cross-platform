@@ -1,0 +1,16 @@
+@model RefCurrencyCode
+
+@{
+    ViewData["Title"] = "Currency Details";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <strong>Name:</strong> @Model.CurrencyName
+</div>
+<div>
+    <strong>Code:</strong> @Model.CurrencyCode
+</div>
+
+<a href="@Url.Action("Currencies")">Back to List</a>

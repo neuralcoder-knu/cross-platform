@@ -1,0 +1,21 @@
+<h2>Search Transactions</h2>
+<form method="post" action="@Url.Action("Results")">
+    <label>Date Range:</label>
+    <input type="date" name="StartDate" />
+    <input type="date" name="EndDate" />
+    <br />
+
+    <label>Currency Codes:</label>
+    <input type="text" name="CurrencyCodes"/>
+    <br />
+
+    <label>Merchant Code Prefix:</label>
+    <input type="text" name="MerchantCodePrefix" />
+    <br />
+
+    <label>Merchant Code Suffix:</label>
+    <input type="text" name="MerchantCodeSuffix" />
+    <br />
+
+    <button type="submit">Search</button>
+</form>

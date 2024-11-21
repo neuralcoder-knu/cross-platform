@@ -14,7 +14,7 @@ public class AuthorizationService
         _httpClient = httpClient;
         _configuration = configuration;
     }
-
+    
     private async Task<string?> CreateToken()
     {
         var domain = _configuration["Auth0:Domain"];
